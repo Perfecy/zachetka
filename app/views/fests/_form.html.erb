@@ -1,0 +1,47 @@
+<body style="background-color:#b31621;">
+
+<%= form_with(model: fest, local: true) do |form| %>
+  <% if fest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fest.errors.count, "error") %> prohibited this fest from being saved:</h2>
+
+      <ul>
+      <% fest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :fest_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :fest_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :organisator %>
+    <%= form.text_field :organisator, id: :fest_organisator %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :fest_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date, id: :fest_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= render 'shared/errors', object: fest %>
+
+</body>

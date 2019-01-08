@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<div class = 'modif'>
+<h1 class="text-typing">Doters</h1>
+  <div class="row featurette">
+    <div class="col-md-7" style="size: A3">
+    <table border="1">
+      <thead>
+      <tr>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <!--        <td><%#= user.admin %></td>-->
+          <td><%= link_to 'Show', user %></td>
+          <% if current_user&.admin? %>
+            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+      <br>
+
+      <%= link_to 'New User', new_user_path %>
+    </div>
+  <div class="col-md-5">
+    <img src="https://psv4.userapi.com/c6226/u66775402/docs/22d0bd01aad4/dance.gif?extra=Ewd39oWBMFK9T5FlmntfTet54CQgMz5AMt8RN6K8nNZNQE7I_C4zcXXNj8tHUACNlA0NO-NtJsHzLvnDWNhDbZ2qXFIx4H76GmpKxXqGiV5C53xIHaHYrBgSRgTzXoGvtu9MQG9LVsUXoMzCubRNBw" class="can_zoom" onmousemove="imgZoom(this);">
+  </div>
+  </div>

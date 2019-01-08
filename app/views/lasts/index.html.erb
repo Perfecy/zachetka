@@ -1,0 +1,45 @@
+<br> <br> <br>
+<body  style="background-color:#ffc300; margin-top: 25px">
+
+<p id="notice"><%= notice %></p>
+<h1 class="text-typing">Events</h1>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-7">
+    <h2 class="featurette-heading">NEWS <span class="text-muted"> Stay in touch! </span></h2>
+    <p class="lead">Here you can get information about new events</p>
+    <h3 style="color:#1a3dc1;"><%= link_to 'New Event', new_last_path %></h3>
+
+  </div>
+  <div class="col-md-3">
+    <img class="featurette-image img-fluid mx-auto" src= <%= image_path("last.png")%> alt="Generic placeholder image">
+  </div>
+</div>
+
+    <% @lasts.each do |last| %>
+
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading"><%= last.name %><span class="text-muted">  Manager: </span><%= last.manager %></h2>
+      <h3 class="lead"><%= last.description %></h3>
+      <p><%= last.date %></p>
+
+      <p> <%= link_to 'Show', last %>
+        <% if current_user&.admin? %>
+      <%= link_to 'Edit', edit_last_path(last) %>
+      <%= link_to 'Destroy', last, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%end %>
+      </p>
+
+    </div>
+    <div class="col-md-3">
+      <img class="featurette-image img-fluid mx-auto" src="<%= last.image.to_s %>" alt="Generic placeholder image">
+    </div>
+  </div>
+
+<% end %>
+
+<br>
+</body>

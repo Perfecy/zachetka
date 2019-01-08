@@ -1,0 +1,44 @@
+<body style="background-color:#ffc300;">
+
+<%= form_with(model: last, local: true) do |form| %>
+  <% if last.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(last.errors.count, "error") %> prohibited this last from being saved:</h2>
+
+      <ul>
+      <% last.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :manager %>
+    <%= form.text_field :manager, id: :last_manager %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :last_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date, id: :last_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :last_image %>
+  </div>
+
+  <div class="actions">
+    <input value="Create event" <%= form.submit %>
+  </div>
+<% end %>

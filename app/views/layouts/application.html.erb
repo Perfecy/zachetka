@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Зачетка Лукунин</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<header>
+  <nav class='navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-4'>
+    <div class="navbar-brand">IU6D2</div>
+    <div class="navbar-nav"><%= link_to(t('Home'), { controller: 'lab', action: 'index' }, class: 'nav-item nav-link') %></div>
+    <% if current_user %>
+      <div class="navbar-nav"><%= link_to(t('Players'), { controller: 'users', action: 'index' }, class: 'nav-item nav-link') %></div>
+      <div class="navbar-nav"><%= link_to(t('News'), { controller: 'lasts', action: 'index' }, class: 'nav-item nav-link') %></div>
+    <% end %>
+ <div class="container-fluid"></div>
+    <div class= "navbar-nav">
+      <%= current_uri = request.env['PATH_INFO'] %>
+      <%= link_to t('RU'), {auth_path: current_uri, locale: 'ru' }, class: 'btn btn-outline-light' %>
+     <%#= current_uri = request.env['PATH_INFO'] %>
+      <%= link_to t('ENG'), {auth_path: current_uri, locale: 'en' }, class: 'btn btn-outline-light' %>
+    </div>
+    <% if current_user %>
+
+      <!--      <span class="navbar-text notices">Good day! <%#= current_user.name %>!</span>-->
+      <div style="color:#000;"> .   . </div>
+        <%= link_to(t('Log Out'), { controller: 'sessions', action: 'logout' }, class: 'btn btn-outline-light') %></div>
+    <%end %>
+  </nav>
+</header>
+<%= yield %>
+</body>
+</html>

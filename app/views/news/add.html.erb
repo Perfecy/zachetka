@@ -1,0 +1,20 @@
+<div id = 'receive'>
+  <h1 style="color: #005cbf">Dota News</h1>
+  <%= form_tag("/edit", method: "get", remote: false) do %>
+    <%= label_tag(:input_label, "Введите название мероприятия:") %>
+    <%= text_field_tag(:input_news, "", class:'form-control modified')%><br>
+    <%= label_tag(:input_label, "Введите дату мероприятия:") %>
+    <%= date_field_tag(:input_date, "", class:'form-control modified')%><br>
+    <%= label_tag(:input_label, "Describe format of your event:") %>
+    <%= text_field_tag(:input_text, "", class:'form-control modified')%>
+    <%= label_tag(:input_label, "Add photo:") %>
+    <%= submit_tag("Поиск", class: 'btn btn-primary') %>
+  <% end %>
+</div>
+
+<h1>Bookshelf</h1>
+
+<%= link_to 'Add event', new_event_path %>
+<ul>
+  <%= render @events %>
+</ul>

@@ -1,0 +1,45 @@
+<body style="background-color:#b31621;">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Fests</h1>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-7">
+    <h2 class="featurette-heading">NEWS <span class="text-muted"> Stay in touch! </span></h2>
+    <p class="lead">Here you can get information about the festival and competitions</p>
+    <h1 style="color:#1a3dc1;"><%= link_to 'New Event', new_fest_path %></h1>
+  </div>
+  <div class="col-md-5">
+    <img class="featurette-image img-fluid mx-auto" src= <%= image_path("fest.png")%> alt="Generic placeholder image">
+  </div>
+</div>
+
+  <tbody>
+    <% @fests.each do |fest| %>
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading"><%= fest.name %><span class="text-muted">  Manager: </span><%= fest.organisator %></h2>
+        <h3 class="lead"><%= fest.description %></h3>
+        <p><%= fest.date %></p>
+        <p><%= link_to 'Show', fest %>
+          <% if current_user&.admin? %>
+            <%= link_to 'Edit', edit_fest_path(fest) %>
+            <%= link_to 'Destroy', fest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <%end %>
+          </p>
+      </div>
+      <div class="col-md-3">
+        <p><%= fest.image %></p>
+        <img class="featurette-image img-fluid mx-auto" alt="Generic placeholder image">
+      </div>
+
+
+            </div>
+
+    <% end %>
+
+
+<br>

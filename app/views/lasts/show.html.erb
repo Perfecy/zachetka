@@ -1,0 +1,32 @@
+<br><br><br>
+<body style="background-color:#ffc300;">
+
+<div class="container marketing">
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="row my-3" >
+  <div class="col-lg-4">
+    <img class="rounded-circle" src=" <%= @last.image.to_s %>" alt="Generic placeholder image" width="160" height="160">
+  </div>
+  <div class="col-lg-4">
+    <h2><%= @last.name %></h2><br>
+      <h3>Manager:<%= @last.manager %></h3>
+    <h3>Date:<%= @last.date %></h3>
+    <br><br>
+    <h5><%= link_to 'Edit', edit_last_path(@last) %> |
+      <%= link_to 'Back', lasts_path %>
+    </h5>
+
+  </div>
+  <div class="col-lg-4" >
+      <h2>Description:</h2>
+      <h3><%= @last.description %></h3>
+  </div>
+
+</div>
+
+
+</div>
+</body>

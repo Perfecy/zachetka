@@ -1,0 +1,9 @@
+<div class="text-center row justify-content-center">
+  <% session[:user_id] = nil %>
+  <h1 class="col-12 mod">New Doter</h1>
+
+  <%= render 'form', user: @user %>
+
+    <%= link_to 'Back', root_path , class: 'col-12', role: 'button'%>
+
+</div>
